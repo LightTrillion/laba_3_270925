@@ -26,7 +26,7 @@ namespace laba_3_270925
             TextBox textBox = (TextBox)sender;
             if (textBox.Text == "Пример текста")
             {
-                textBox.Text = ""; // Очищаем текст, чтобы он исчез
+                textBox.Text = "";
             }
             else
             {
