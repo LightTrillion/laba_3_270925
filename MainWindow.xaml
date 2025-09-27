@@ -1,0 +1,42 @@
+﻿<Window x:Class="laba_3_270925.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laba_3_270925"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu>
+            <MenuItem Header="Задание 4" Click="MenuItem_Click"/>
+        </Menu>
+        
+        <StackPanel Margin="20">
+            <TextBlock Text="Size font:" FontWeight="Bold"/>
+            <Slider x:Name="fontSizeSlider" 
+                Minimum="8" Maximum="72" Value="12"
+                Margin="0,5,0,10"/>
+
+            <TextBlock Text="Input size:" FontWeight="Bold"/>
+            <TextBox x:Name="fontSizeTextBox" 
+                 Text="{Binding ElementName=fontSizeSlider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="0,5,0,10"/>
+            
+            <TextBox Text="Пример текста"
+                   FontSize="{Binding ElementName=fontSizeSlider, Path=Value}"
+                   TextAlignment="Center"
+                   Background="LightBlue"
+                   Padding="10"
+                   Margin="0,10,0,0"
+                   GotFocus="TextBox_GotFocus"/>
+
+            <TextBlock Text="TextBoxes:" FontWeight="Bold" Margin="0,20,0,5"/>
+            <TextBox x:Name="t1" />
+            <TextBox x:Name="t2" Text="{Binding ElementName=t1, Path=Text, Mode=TwoWay}" />
+
+            <TextBlock Text="Sliders:" FontWeight="Bold" Margin="0,20,0,5"/>
+            <Slider x:Name="slider1" />
+            <Slider x:Name="slider2" Value="{Binding ElementName=slider1, Path=Value}" />
+        </StackPanel>
+    </Grid>
+</Window>
